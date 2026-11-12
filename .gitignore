@@ -5,3 +5,11 @@ __pycache__/
 data/**/groundtruth/
 data/_cache/
 /*.zip
+
+# Local automation: credentials, dependencies and unsubmitted review artifacts
+.venv/
+.env
+.env.*
+!.env.example
+automation/.runtime/
+automation/models/

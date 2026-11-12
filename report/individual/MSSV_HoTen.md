@@ -2,9 +2,10 @@
 
 **Cách dùng:** Thay mọi dấu `…` bằng bài làm thật của bạn trước khi nộp link fork trên [LMS](https://aithucchien.vinuni.edu.vn). Giữ nguyên bốn mục và bảng để coach đọc nhanh. Viết ngắn, cụ thể theo ảnh/vùng; không cần thuật ngữ chuyên sâu. Ví dụ trong [hướng dẫn mẫu](../../reports/REPORT_TEMPLATE.md) chỉ giúp hiểu cách điền, không phải câu trả lời để chép lại.
 
-- Mã học viên theo lớp: …
-- Ngày / CVAT local: …
-- Công cụ đã dùng: …
+- Mã học viên theo lớp:2A202603127
+- Ngày / CVAT local: 11/11/2026
+- Công cụ đã dùng: CVAT, AI Assistance (Segment Anything 3),
+  Prompting, Brush/Polygon.
 
 Mã học viên là mã lớp cấp; không cần ghi họ tên trong report nếu kênh [LMS](https://aithucchien.vinuni.edu.vn) đã nhận diện bạn. Chỉ ghi công cụ thật sự đã dùng; không có SAM vẫn làm bài bình thường.
 
@@ -14,18 +15,26 @@ Ghi tên ZIP đúng như file trong `submissions/` và số ảnh đã vẽ, Sav
 
 | Task | File ZIP đúng tên | Hoàn thành mấy ảnh | Điểm tối đa (coach chấm sau) |
 | --- | --- | ---: | ---: |
-| easy_semantic | … | … / 3 | 20 |
-| medium_instance | … | … / 3 | 32 |
-| hard_panoptic | … | … / 2 | 30 |
-| cp1_holes | … | … / 1 | 3 |
-| cp2_slice | … | … / 1 | 3 |
-| cp5_occlusion | … | … / 1 | 3 |
-| cp3_thin | … | … / 1 | 3 |
-| cp4_curb | … | … / 1 | 3 |
-| cp6_coverage | … | … / 1 | 3 |
+| easy_semantic | easy_semantic.zip | Chưa xác minh trực quan; ZIP có mask 3 / 3 ảnh | 20 |
+| medium_instance | medium_instance.zip | Chưa xác minh trực quan; ZIP có 70 annotation trên 3 / 3 ảnh | 32 |
+| hard_panoptic | hard_panoptic.zip | Chưa xác minh trực quan; ZIP có 69 annotation trên 2 / 2 ảnh | 30 |
+| cp1_holes | chưa có ZIP | Chưa xác minh / 1 | 3 |
+| cp2_slice | chưa có ZIP | Chưa xác minh / 1 | 3 |
+| cp5_occlusion | chưa có ZIP | Chưa xác minh / 1 | 3 |
+| cp3_thin | chưa có ZIP | Chưa xác minh / 1 | 3 |
+| cp4_curb | chưa có ZIP | Chưa xác minh / 1 | 3 |
+| cp6_coverage | chưa có ZIP | Chưa xác minh / 1 | 3 |
 | **Tổng tối đa** | | | **100** |
 
 Nếu export lỗi, ghi task, dữ liệu đã Save đến đâu và lỗi đã báo coach.
+
+**Ghi nhận kiểm file local ngày 12/11/2026, chưa phải kết luận chất lượng:**
+Ba ZIP có sẵn qua kiểm cấu trúc và giải mã mask; sáu ZIP checkpoint chưa có.
+Medium có 70 annotation trên cả ba ảnh; kiểm pixel phát hiện overlap ở cả ba ảnh, cần người học kiểm lại phần nhìn thấy trong CVAT.
+Hard có 69 polygon trên cả hai ảnh; kiểm pixel phát hiện overlap ở cả hai ảnh, cần kiểm trực quan panoptic trong CVAT.
+Cần mở các task kiểm dữ liệu đã Save trên CVAT và export lại nếu ZIP chưa phản ánh bài làm mới nhất.
+Chưa sửa annotation, chưa export lại, chưa xác minh class/biên/số vật và chưa có điểm.
+Các ghi nhận này không thay cho quyết định hoặc lỗi đã tự quan sát/sửa ở mục 2–4.
 
 ## 2. Một quyết định trước khi dùng gợi ý
 
