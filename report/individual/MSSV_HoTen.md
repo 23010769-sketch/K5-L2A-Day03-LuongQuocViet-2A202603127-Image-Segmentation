@@ -40,20 +40,20 @@ Các ghi nhận này không thay cho quyết định hoặc lỗi đã tự quan
 
 Chọn object đầu tiên bạn tự vẽ ở `medium_instance`, trước khi xem bất kỳ đề xuất tự động nào cho object đó. Ghi ảnh/vị trí đủ để tìm lại; “quy tắc biên” là lý do bạn chọn hoặc dừng mask ở ranh đó.
 
-- Ảnh, vị trí và object Medium đầu tiên tự vẽ: …
-- Class và quy tắc tôi dùng để chọn biên: …
-- Nếu dùng gợi ý sau đó: vùng gợi ý sai/đúng, hành động sửa/giữ và lý do: …
+- Ảnh, vị trí và object Medium đầu tiên tự vẽ: Ảnh đầu tiên của medium_instance, một chiếc ô tô trên đường
+- Class và quy tắc tôi dùng để chọn biên:  Tôi chọn class car, sử dụng công cụ Polygon để vẽ theo đường viền phần thân xe nhìn thấy được, không lấy phần đường hoặc bóng xe vào mask.
+- Nếu dùng gợi ý sau đó: vùng gợi ý sai/đúng, hành động sửa/giữ và lý do: Tôi sử dụng AI Assistance với Segment Anything 3 để hỗ trợ gán nhãn các đối tượng tiếp theo. Tôi kiểm tra các mask được đề xuất, chú ý đường viền và việc tách riêng từng đối tượng
 - Nếu không dùng gợi ý: ghi “không dùng”; vẫn giải thích một quyết định gán nhãn của mình.
 
 ## 3. Một lỗi tôi tìm thấy và sửa
 
 Chọn một lỗi **có thật** trong bài. Nếu công cụ lỗi khiến bạn chưa sửa được, ghi rõ đã thử gì và cần coach hỗ trợ gì; không ghi “đã sửa” khi chưa sửa.
 
-- Task/ảnh/vùng: …
-- Lỗi thuộc loại: sai lớp / thiếu-thừa vật / gộp-tách / biên / phủ vùng / khác: …
-- Bằng chứng tôi nhìn thấy: …
-- Quy tắc và hành động sửa: …
-- Sau sửa đã Save và export lại chưa? …
+- Task/ảnh/vùng: ảnh đường cao tốc, khu vực sườn đồi và đường chân trời
+- Lỗi thuộc loại: sai lớp / thiếu-thừa vật / gộp-tách / biên / phủ vùng / khác: Sai lớp và sai đường biên
+- Bằng chứng tôi nhìn thấy: Khi sử dụng AI Assistance với Segment Anything 3 để nhận diện vegetation, mô hình tạo ra một số vùng mask không chính xác. Một số vùng trên sườn đồi bị chọn nhầm hoặc không bám sát khu vực thực vật thực tế.
+- Quy tắc và hành động sửa: Tôi kiểm tra lại ranh giới giữa vegetation, sky và các vùng đất trống.
+- Sau sửa đã Save và export lại chưa? Đã Save và export lại
 
 Nếu bạn **đã xem Summary tự đánh giá trên GitHub Actions hoặc tự chạy script**, ghi ngắn một kết quả liên quan lỗi vừa sửa (ví dụ task, metric trước/sau nếu có): … / chưa có điểm. Scorecard ba tier tối đa **82**, không phải điểm cuối trên 100. Không tự ghi PASS/top 3/bonus; người phụ trách xác nhận theo tiêu chí lớp. Không đưa file ground truth vào fork.
 
@@ -63,6 +63,6 @@ Mỗi ca là một **vùng cụ thể** khiến bạn phải cân nhắc hai cá
 
 | Ảnh/vị trí | Hai cách hiểu có thể | Quy tắc/chứng cứ | Quyết định hoặc câu hỏi cho coach |
 | --- | --- | --- | --- |
-| 1 | … | … | … |
-| 2 | … | … | … |
-| 3 | … | … | … |
+| 1 | Easy — vùng sườn đồi hai bên đường| Vegetation hoặc đất trống | Một số vùng trên đồi có màu sắc gần giống cây cỏ nhưng không thể hiện rõ thực vật | Tôi chỉ giữ mask vegetation ở những vùng nhận diện được thực vật và loại bỏ vùng đất trống
+| 2 |Easy — khu vực đường chân trời |Sky hoặc vegetation|Ranh giới giữa bầu trời và sườn đồi không đều, AI có thể tạo mask vượt qua đường biên |Tôi kiểm tra và điều chỉnh mask theo đường chân trời quan sát được
+| 3 | Medium — các ô tô ở xa trên đường| Car riêng biệt hoặc một vùng gộp nhiều xe | Các xe ở xa có kích thước nhỏ và nằm gần nhau nên dễ bị AI nhận diện thành một vùng |Tôi tách riêng từng xe có thể nhận diện được, không gộp nhiều xe vào cùng một instance
